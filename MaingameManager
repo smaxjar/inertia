@@ -1,0 +1,55 @@
+using UnityEngine;
+using System.Collections;
+
+public class MainGameManager : MonoBehaviour {
+
+	private Spikes player; // Calls the player script
+	public static MainGameManager Instance = null;
+ 	private int playerLives = 2;
+	private int playerHealth;
+	void Awake(){
+		player = FindObjectOfType <Spikes> (); // Allows script to use player variables.
+
+				
+						if (Instance == null) {
+								Instance = this;
+								DontDestroyOnLoad (this.gameObject);
+						} 
+						 else
+								Destroy (this.gameObject);
+				
+		}
+
+void Update(){
+		if (playerHealth <= 0) {
+		//	adjustlive (-1); //minus 1 life for player
+			playerHealth = 100;//Sets the health back to 100.
+		}
+
+	//if (playerLives == -1) {// Sets the Player lives when he has no more lives.
+
+		  //  playerLives = 2;//Sets the lives back to 2
+		//	playerHealth = 100;//Sets the health back to 100.
+
+			//	}
+	}
+
+
+  	public void adjustlive(int num){ // Controls the lives
+		playerLives = playerLives + num;
+		}
+
+	public void adjustHealth(int num){//Controls the health
+		playerHealth = playerHealth + num;
+		}
+
+
+
+	void OnGUI(){ 
+		if(Application.loadedLevel == 2){//Displays the lives,score, and highscore if the level is loaded.
+		//GUI.Label (new Rect (10, 10, 100, 100), "lives = " + playerLives);
+		GUI.Label (new Rect (80,10,100,100), "Score = " + playerHealth);
+		}
+
+   }
+}
