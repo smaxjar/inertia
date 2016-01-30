@@ -8,7 +8,7 @@ public class Respawning : MonoBehaviour {
 
 	void Update(){
 		
-		if(MainGameManager.Instance.cur_Health <=0){     //respawns player when player dies
+		if(MainGameManager.Instance.cur_Health <=0){     //respawns player when player dies at spawn point
 			Player.transform.position = SpawnPoint.position;
 		}
   }
