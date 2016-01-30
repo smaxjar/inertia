@@ -10,6 +10,7 @@ public class MainGameManager : MonoBehaviour {
 	private int playerHealth = 100;
 	public Image bar;
 	public float cur_Health;
+	float this_Health = 100; 
 	void Awake(){
 		//player = FindObjectOfType <Spikes> (); // Allows script to use player variables.
 
@@ -25,12 +26,14 @@ public class MainGameManager : MonoBehaviour {
 
 	void Start(){
 
-
 		cur_Health = playerHealth;
 
 	}
 
 void Update(){
+		
+
+		
 		if (playerHealth <= 0) {
 		//	adjustlive (-1); //minus 1 life for player
 			cur_Health = 100;//Sets the health back to 100.
@@ -51,10 +54,9 @@ void Update(){
 
 	public void adjustHealth(float num){//Controls the health
 		cur_Health = cur_Health + num;
-		float this_Health = cur_Health / playerHealth; //get the player health in 
+		this_Health = cur_Health / playerHealth; //get the player health in 
+		bar.fillAmount = this_Health;
 		}
 		
-	void SetHealth(float Health){
-		bar.fillAmount = Health;
-	}
-}
+ }
+ 
