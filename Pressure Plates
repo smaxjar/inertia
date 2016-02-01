@@ -21,7 +21,7 @@ public class PressurePlate : MonoBehaviour {
 			// add door opening animation/logic
 		}
 		if (other.transform.tag == "movablebox"){ // the tag for movable box will change to whatever we decide to name them
-		pressurePlate = true;					 // crate, box, etc.
+		pressurePlate = true;			  // crate, box, etc.
 		// door opening animation/logic 
 		} 
 		print("Detected collision between " + gameObject.name + " and " + other.collider.name); // these 3 lines test if its colliding
