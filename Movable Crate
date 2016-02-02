@@ -13,7 +13,7 @@ public class MovableCrate : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter(Collision col)
+	void OnCollisionStay(Collision col)
 	{
 		if (col.gameObject.tag == "Player" && Input.GetKey(KeyCode.Space)) // KeyCode can be whatever key you want. 
 		{																  	                               // Using Space as default
@@ -24,10 +24,3 @@ public class MovableCrate : MonoBehaviour {
 	}
 		
 }
-/* 
-  This hasn't been properly tested because I am unsure if using 2D or 3D. Currently this is 3D
-  If the game uses 2D physics then change OnCollisionEnter(Collision col) to OnCollisionEnter2D(Collision2D col)
-  GetKey means you have to hold the button down for it to work and it will release when you let go
-  If you want to just press it change GetKey to GetKeyDown. Not sure if that will work as a toggle though.
-  For now holding space down will work fine
-*/
