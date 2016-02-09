@@ -1,0 +1,23 @@
+using UnityEngine;
+using System.Collections;
+
+public class PitFall : MonoBehaviour {
+
+    public Transform Crate;  // use the crate object
+    public Transform CrateSpawn; // use the crate container
+    public Transform SpawnPoint;
+    public Transform Player;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            GameObject.FindWithTag("Crate").transform.parent = null; // player drops crate before respawning
+            Player.transform.position = SpawnPoint.position;  // this way crate doesnt respawn with player
+        }
+        if (other.gameObject.tag == "Crate")
+        {
+            Crate.transform.position = CrateSpawn.position;      
+        }
+    }
+}
